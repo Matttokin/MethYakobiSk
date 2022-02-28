@@ -1,0 +1,11 @@
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\bin\Debug\MethYakobiSk.exe.config
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\bin\Debug\MethYakobiSk.exe
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\bin\Debug\MethYakobiSk.pdb
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\obj\Debug\MethYakobiSk.csproj.AssemblyReference.cache
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\obj\Debug\MethYakobiSk.csproj.SuggestedBindingRedirects.cache
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\obj\Debug\MethYakobiSk.Form1.resources
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\obj\Debug\MethYakobiSk.Properties.Resources.resources
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\obj\Debug\MethYakobiSk.csproj.GenerateResource.cache
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\obj\Debug\MethYakobiSk.csproj.CoreCompileInputs.cache
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\obj\Debug\MethYakobiSk.exe
+C:\Users\MrTokin\source\repos\MethYakobiSk\MethYakobiSk\obj\Debug\MethYakobiSk.pdb
