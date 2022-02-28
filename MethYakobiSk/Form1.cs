@@ -30,6 +30,7 @@ namespace MethYakobiSk
 
             drawMatrix();
         }
+        #region drawMatrix
         private void drawMatrix()
         {
             dataGridView1.Columns.Clear();
@@ -109,7 +110,7 @@ namespace MethYakobiSk
             }
             dataGridView3.Rows.Add();
         }
-
+        #endregion drawMatrix
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             drawMatrix();
@@ -117,6 +118,7 @@ namespace MethYakobiSk
 
         private void button2_Click(object sender, EventArgs e)
         {
+            #region parseForm
             double.TryParse(textBox1.Text, out eps);
             if(eps <= 0)
             {
@@ -146,7 +148,11 @@ namespace MethYakobiSk
 
             double[] X1 = new double[countCol];
 
+            #endregion parseForm
+
             var result = Jacobi(countCol, A1, F1, X1);
+
+            //вывод в таблицу
             for (int i = 0; i < result.Count(); i++)
             {
                 dataGridView3.Rows[0].Cells[i].Value = result[i];
@@ -165,6 +171,9 @@ namespace MethYakobiSk
 
             do
             {
+                // Процедура нахождения решения
+                // https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%AF%D0%BA%D0%BE%D0%B1%D0%B8#%D0%A3%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D0%B5_%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B8
+                // Блок "Описание метода"
                 for (int i = 0; i < N; i++)
                 {
                     TempX[i] = F[i];
@@ -177,19 +186,19 @@ namespace MethYakobiSk
                     }
                     TempX[i] /= A[i,i];
                 }
-                norm = Math.Abs(Math.Abs(X[0]) - Math.Abs(TempX[0]));
+
+                norm = Math.Abs(Math.Abs(X[0]) - Math.Abs(TempX[0])); //отклонение = разность между текущим значение и его потомком
                 for (int h = 0; h < N; h++)
                 {
-                    if (Math.Abs(Math.Abs(X[h]) - Math.Abs(TempX[h])) > norm)
+                    if (Math.Abs(Math.Abs(X[h]) - Math.Abs(TempX[h])) > norm) //определяем наибольшее отклонение
                     {
                         norm = Math.Abs(Math.Abs(X[h]) - Math.Abs(TempX[h]));
                     }
                     X[h] = TempX[h];
                 }
-                //Console.WriteLine(X[0] + " " + X[1] + " " + X[2] + " " + X[3]);
-            } while (norm > eps);
-            TempX = null;
-
+            } 
+            while (norm > eps); //пока отклонение не сравняется с эталанной погрешностью
+            
             return X;
         }
     }
