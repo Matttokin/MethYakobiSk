@@ -146,16 +146,16 @@ namespace MethYakobiSk
                 F1[j] = valueCells;
             }
 
-            double[] X1 = new double[countCol];
+            
 
             #endregion parseForm
 
-            var result = Jacobi(countCol, A1, F1, X1);
+            var result = Jacobi(countCol, A1, F1);
 
             //вывод в таблицу
             for (int i = 0; i < result.Count(); i++)
             {
-                dataGridView3.Rows[0].Cells[i].Value = result[i];
+                dataGridView3.Rows[0].Cells[i].Value = Math.Round(result[i],3);
             }
         }
         
@@ -164,8 +164,9 @@ namespace MethYakobiSk
         /// A[N][N] - матрица коэффициентов
         /// F[N] - столбец свободных членов
         /// X[N] - начальное приближение, ответ записывается также в X[N]
-        double[] Jacobi(int N, double[,] A, double[] F, double[] X)
+        double[] Jacobi(int N, double[,] A, double[] F)
         {
+            double[] X = getStartX(N,A,F);
             double[] TempX = new double[N];
             double norm; // норма, определяемая как наибольшая разность компонент столбца иксов соседних итераций.
 
@@ -199,6 +200,16 @@ namespace MethYakobiSk
             } 
             while (norm > eps); //пока отклонение не сравняется с эталанной погрешностью
             
+            return X;
+        }
+
+        double[] getStartX(int N, double[,] A, double[] F)
+        {
+            double[] X = new double[N];
+            for (int i = 0; i < N; ++i)
+            {
+                X[i] = F[i] / A[i,i];
+            }
             return X;
         }
     }
