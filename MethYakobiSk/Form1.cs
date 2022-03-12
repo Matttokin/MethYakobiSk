@@ -146,10 +146,23 @@ namespace MethYakobiSk
                 F1[j] = valueCells;
             }
 
-            
+
 
             #endregion parseForm
 
+            var a = CalcMatrix.checkСonvergenceСondition(countCol, A1);
+            if(a >= 1)
+            {
+                MessageBox.Show("Условие сходимости не выполнено");
+                return;
+            }
+
+            var det = CalcMatrix.getDet(countCol, A1);
+            if(det == 0)
+            {
+                MessageBox.Show("Определитель равен 0");
+                return;
+            }
             var result = Jacobi(countCol, A1, F1);
 
             //вывод в таблицу
