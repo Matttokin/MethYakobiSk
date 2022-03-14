@@ -125,9 +125,7 @@ namespace MethYakobiSk
                 eps = 0.001;
             }
 
-            int[,] arr = new int[countCol, countCol];
-            double[,] A1 = new double[countCol, countCol];
-            
+            double[,] A1 = new double[countCol, countCol];            
             for(int i = 0; i < countCol; i++)
             {
                 for (int j = 0; j < countCol; j++)
@@ -157,7 +155,7 @@ namespace MethYakobiSk
                 return;
             }
 
-            var det = CalcMatrix.getDet(countCol, A1);
+            var det = CalcMatrix.Determ(A1);
             if(det == 0)
             {
                 MessageBox.Show("Определитель равен 0");
