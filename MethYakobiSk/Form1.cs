@@ -201,12 +201,12 @@ namespace MethYakobiSk
                     TempX[i] /= A[i,i];
                 }
 
-                norm = Math.Abs(Math.Abs(X[0]) - Math.Abs(TempX[0])); //отклонение = разность между текущим значение и его потомком
+                norm = Math.Abs(TempX[0] - X[0]); //отклонение = разность между текущим значение и его потомком
                 for (int h = 0; h < N; h++)
                 {
-                    if (Math.Abs(Math.Abs(X[h]) - Math.Abs(TempX[h])) > norm) //определяем наибольшее отклонение
+                    if (Math.Abs(TempX[h] - X[h]) > norm) //определяем наибольшее отклонение
                     {
-                        norm = Math.Abs(Math.Abs(X[h]) - Math.Abs(TempX[h]));
+                        norm = Math.Abs(TempX[h] - X[h]);
                     }
                     X[h] = TempX[h];
                 }
